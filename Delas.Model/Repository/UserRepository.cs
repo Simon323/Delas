@@ -13,7 +13,7 @@ namespace Delas.Model.Repository
     {
         public User GetUserByLogin(string login)
         {
-            return Items.FirstOrDefault(u => u.Login.Equals(login));
+            return Items.FirstOrDefault(x => x.Login.Equals(login));
         }
     }
 }

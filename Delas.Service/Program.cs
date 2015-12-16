@@ -11,7 +11,7 @@ namespace Delas.Service
     {
         static void Main(string[] args)
         {
-            using (ServiceHost serviceHost = new ServiceHost(typeof(Service1)))
+            using (ServiceHost serviceHost = new ServiceHost(typeof(BankService)))
             {
                 serviceHost.Open();
                 Console.WriteLine("Service is open...");

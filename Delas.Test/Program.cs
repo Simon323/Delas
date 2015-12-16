@@ -1,6 +1,6 @@
 ﻿using Delas.Model.Repository;
 using Delas.Model.Repository.Interfaces;
-using Delas.Test.ServiceReference;
+using Delas.Test.BankServiceReference;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,16 +13,21 @@ namespace Delas.Test
     {
         static void Main(string[] args)
         {
-            using (Service1Client client = new Service1Client("Service1Endpoint"))
+            using (BankServiceClient client = new BankServiceClient("BankServiceEndpoint"))
             {
                 while (true)
                 {
                     if (System.Console.ReadLine().Equals("exit"))
                         break;
 
-                    System.Console.WriteLine(client.GetBankName());
-
+                    //System.Console.WriteLine(client.GetBankName());
+                    var xxx = client.GetUserByLogin("qwer");
+                    System.Console.WriteLine(xxx);
                 }
+
+                //var result = client.GetUserByLogin("qwer");
+                //Console.ReadLine();
+
             }
         }
     }
