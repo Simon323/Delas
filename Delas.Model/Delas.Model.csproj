@@ -41,6 +41,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,14 +51,74 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Account.cs">
+      <DependentUpon>Delas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Delas.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Delas.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Delas.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Delas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Delas.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Delas.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\History.cs">
+      <DependentUpon>Delas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\OperationType.cs">
+      <DependentUpon>Delas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\User.cs">
+      <DependentUpon>Delas.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\AccountRepository.cs" />
+    <Compile Include="Repository\HistoryRepository.cs" />
+    <Compile Include="Repository\Interfaces\IAccountRepository.cs" />
+    <Compile Include="Repository\Interfaces\IHistoryRepository.cs" />
+    <Compile Include="Repository\Interfaces\IOperationTypeRepository.cs" />
+    <Compile Include="Repository\Interfaces\IUserRepository.cs" />
+    <Compile Include="Repository\OperationTypeRepository.cs" />
+    <Compile Include="Repository\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <EntityDeploy Include="Model\Delas.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Delas.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model\Delas.edmx.diagram">
+      <DependentUpon>Delas.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Repository\" />
+    <ProjectReference Include="..\Delas.DBContext\Delas.DBContext.csproj">
+      <Project>{82da3922-02d6-4dd4-8c05-9c26cb0a16f2}</Project>
+      <Name>Delas.DBContext</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Model\Delas.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Delas.edmx</DependentUpon>
+      <LastGenOutput>Delas.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\Delas.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Delas.edmx</DependentUpon>
+      <LastGenOutput>Delas.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

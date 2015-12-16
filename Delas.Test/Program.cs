@@ -1,4 +1,6 @@
-﻿using Delas.Test.ServiceReference;
+﻿using Delas.Model.Repository;
+using Delas.Model.Repository.Interfaces;
+using Delas.Test.ServiceReference;
 using System;
 using System.Collections.Generic;
 using System.Linq;
