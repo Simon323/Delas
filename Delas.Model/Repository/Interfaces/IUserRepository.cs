@@ -10,5 +10,6 @@ namespace Delas.Model.Repository.Interfaces
     public interface IUserRepository
     {
         IQueryable<User> GetAll();
+        User GetUserByLogin(string login);
     }
 }

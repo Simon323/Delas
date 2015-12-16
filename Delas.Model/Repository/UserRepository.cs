@@ -11,5 +11,9 @@ namespace Delas.Model.Repository
 {
     public class UserRepository : BaseDbContextRepository<User, DelasEntities>, IUserRepository
     {
+        public User GetUserByLogin(string login)
+        {
+            return Items.FirstOrDefault(u => u.Login.Equals(login));
+        }
     }
 }

@@ -53,6 +53,16 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Delas.DBContext\Delas.DBContext.csproj">
+      <Project>{82da3922-02d6-4dd4-8c05-9c26cb0a16f2}</Project>
+      <Name>Delas.DBContext</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Delas.Model\Delas.Model.csproj">
+      <Project>{1798bc9c-6e2a-406d-923b-d67cda23646b}</Project>
+      <Name>Delas.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <VSToolsPath Condition="'$(VSToolsPath)' == '' and '$(VisualStudioVersion)' != '' and '$(VisualStudioVersion)' != '11.0'">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
