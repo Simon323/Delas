@@ -15,15 +15,12 @@ namespace Delas.Test.BankServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="User", Namespace="http://schemas.datacontract.org/2004/07/Delas.Service.Models")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UserSOAP", Namespace="http://schemas.datacontract.org/2004/07/Delas.Service.Models")]
     [System.SerializableAttribute()]
-    public partial class User : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class UserSOAP : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Delas.Test.BankServiceReference.Account[] AccountsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IdField;
@@ -50,19 +47,6 @@ namespace Delas.Test.BankServiceReference {
             }
             set {
                 this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public Delas.Test.BankServiceReference.Account[] Accounts {
-            get {
-                return this.AccountsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.AccountsField, value) != true)) {
-                    this.AccountsField = value;
-                    this.RaisePropertyChanged("Accounts");
-                }
             }
         }
         
@@ -154,406 +138,15 @@ namespace Delas.Test.BankServiceReference {
         }
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Account", Namespace="http://schemas.datacontract.org/2004/07/Delas.Service.Models")]
-    [System.SerializableAttribute()]
-    public partial class Account : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double BalanceField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Delas.Test.BankServiceReference.History[] HistoriesField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdUserField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NumberField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Delas.Test.BankServiceReference.User UserField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public double Balance {
-            get {
-                return this.BalanceField;
-            }
-            set {
-                if ((this.BalanceField.Equals(value) != true)) {
-                    this.BalanceField = value;
-                    this.RaisePropertyChanged("Balance");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public Delas.Test.BankServiceReference.History[] Histories {
-            get {
-                return this.HistoriesField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.HistoriesField, value) != true)) {
-                    this.HistoriesField = value;
-                    this.RaisePropertyChanged("Histories");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int IdUser {
-            get {
-                return this.IdUserField;
-            }
-            set {
-                if ((this.IdUserField.Equals(value) != true)) {
-                    this.IdUserField = value;
-                    this.RaisePropertyChanged("IdUser");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Number {
-            get {
-                return this.NumberField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NumberField, value) != true)) {
-                    this.NumberField = value;
-                    this.RaisePropertyChanged("Number");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public Delas.Test.BankServiceReference.User User {
-            get {
-                return this.UserField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UserField, value) != true)) {
-                    this.UserField = value;
-                    this.RaisePropertyChanged("User");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="History", Namespace="http://schemas.datacontract.org/2004/07/Delas.Service.Models")]
-    [System.SerializableAttribute()]
-    public partial class History : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Delas.Test.BankServiceReference.Account AccountField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double AmountField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double BalanceField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime DateField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DestinationAccountField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdAccountField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int OperationTypeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Delas.Test.BankServiceReference.OperationType OperationType1Field;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string TitleField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public Delas.Test.BankServiceReference.Account Account {
-            get {
-                return this.AccountField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.AccountField, value) != true)) {
-                    this.AccountField = value;
-                    this.RaisePropertyChanged("Account");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public double Amount {
-            get {
-                return this.AmountField;
-            }
-            set {
-                if ((this.AmountField.Equals(value) != true)) {
-                    this.AmountField = value;
-                    this.RaisePropertyChanged("Amount");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public double Balance {
-            get {
-                return this.BalanceField;
-            }
-            set {
-                if ((this.BalanceField.Equals(value) != true)) {
-                    this.BalanceField = value;
-                    this.RaisePropertyChanged("Balance");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime Date {
-            get {
-                return this.DateField;
-            }
-            set {
-                if ((this.DateField.Equals(value) != true)) {
-                    this.DateField = value;
-                    this.RaisePropertyChanged("Date");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string DestinationAccount {
-            get {
-                return this.DestinationAccountField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DestinationAccountField, value) != true)) {
-                    this.DestinationAccountField = value;
-                    this.RaisePropertyChanged("DestinationAccount");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int IdAccount {
-            get {
-                return this.IdAccountField;
-            }
-            set {
-                if ((this.IdAccountField.Equals(value) != true)) {
-                    this.IdAccountField = value;
-                    this.RaisePropertyChanged("IdAccount");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int OperationType {
-            get {
-                return this.OperationTypeField;
-            }
-            set {
-                if ((this.OperationTypeField.Equals(value) != true)) {
-                    this.OperationTypeField = value;
-                    this.RaisePropertyChanged("OperationType");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public Delas.Test.BankServiceReference.OperationType OperationType1 {
-            get {
-                return this.OperationType1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OperationType1Field, value) != true)) {
-                    this.OperationType1Field = value;
-                    this.RaisePropertyChanged("OperationType1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Title {
-            get {
-                return this.TitleField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TitleField, value) != true)) {
-                    this.TitleField = value;
-                    this.RaisePropertyChanged("Title");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="OperationType", Namespace="http://schemas.datacontract.org/2004/07/Delas.Service.Models")]
-    [System.SerializableAttribute()]
-    public partial class OperationType : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Delas.Test.BankServiceReference.History[] HistoriesField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NameField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public Delas.Test.BankServiceReference.History[] Histories {
-            get {
-                return this.HistoriesField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.HistoriesField, value) != true)) {
-                    this.HistoriesField = value;
-                    this.RaisePropertyChanged("Histories");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Name {
-            get {
-                return this.NameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NameField, value) != true)) {
-                    this.NameField = value;
-                    this.RaisePropertyChanged("Name");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="BankServiceReference.IBankService")]
     public interface IBankService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBankService/GetUserByLogin", ReplyAction="http://tempuri.org/IBankService/GetUserByLoginResponse")]
-        Delas.Test.BankServiceReference.User GetUserByLogin(string login);
+        Delas.Test.BankServiceReference.UserSOAP GetUserByLogin(string login);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBankService/GetUserByLogin", ReplyAction="http://tempuri.org/IBankService/GetUserByLoginResponse")]
-        System.Threading.Tasks.Task<Delas.Test.BankServiceReference.User> GetUserByLoginAsync(string login);
+        System.Threading.Tasks.Task<Delas.Test.BankServiceReference.UserSOAP> GetUserByLoginAsync(string login);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBankService/GetBankName", ReplyAction="http://tempuri.org/IBankService/GetBankNameResponse")]
         string GetBankName();
@@ -589,11 +182,11 @@ namespace Delas.Test.BankServiceReference {
                 base(binding, remoteAddress) {
         }
         
-        public Delas.Test.BankServiceReference.User GetUserByLogin(string login) {
+        public Delas.Test.BankServiceReference.UserSOAP GetUserByLogin(string login) {
             return base.Channel.GetUserByLogin(login);
         }
         
-        public System.Threading.Tasks.Task<Delas.Test.BankServiceReference.User> GetUserByLoginAsync(string login) {
+        public System.Threading.Tasks.Task<Delas.Test.BankServiceReference.UserSOAP> GetUserByLoginAsync(string login) {
             return base.Channel.GetUserByLoginAsync(login);
         }
         

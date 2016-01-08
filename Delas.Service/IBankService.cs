@@ -12,7 +12,7 @@ namespace Delas.Service
     public interface IBankService
     {
         [OperationContract]
-        User GetUserByLogin(string login);
+        UserSOAP GetUserByLogin(string login);
 
         [OperationContract]
         string GetBankName();

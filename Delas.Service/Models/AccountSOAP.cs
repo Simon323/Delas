@@ -8,16 +8,10 @@ using System.Threading.Tasks;
 namespace Delas.Service.Models
 {
     [DataContract]
-    public partial class Account
+    public partial class AccountSOAP
     {
-        public Account()
+        public AccountSOAP(int id, int idUser, string number, double balance)
         {
-            this.Histories = new HashSet<History>();
-        }
-
-        public Account(int id, int idUser, string number, double balance)
-        {
-            this.Histories = new HashSet<History>();
             this.Id = id;
             this.IdUser = IdUser;
             this.Number = number;
@@ -32,9 +26,5 @@ namespace Delas.Service.Models
         public string Number { get; set; }
         [DataMember]
         public double Balance { get; set; }
-        [DataMember]
-        public virtual User User { get; set; }
-        [DataMember]
-        public virtual ICollection<History> Histories { get; set; }
     }
 }

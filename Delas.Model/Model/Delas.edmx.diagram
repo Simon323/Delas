@@ -5,13 +5,10 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="56dd2180196c4368bdf62631f1f1c0ed" Name="Diagram1">
-        <EntityTypeShape EntityType="DelasModel.Account" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="DelasModel.History" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="DelasModel.OperationType" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="DelasModel.User" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
-        <AssociationConnector Association="DelasModel.FK_Accounts_Users" ManuallyRouted="false" />
-        <AssociationConnector Association="DelasModel.FK_History_Accounts" ManuallyRouted="false" />
-        <AssociationConnector Association="DelasModel.FK_History_OperationTypes" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DelasModel.Account" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DelasModel.History" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DelasModel.OperationType" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DelasModel.User" Width="1.5" PointX="0.75" PointY="4.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

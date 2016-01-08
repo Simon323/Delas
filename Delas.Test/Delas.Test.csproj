@@ -76,9 +76,6 @@
     <None Include="Service References\BankServiceReference\BankService2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\BankServiceReference\Delas.Test.BankServiceReference.User.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Delas.DBContext\Delas.DBContext.csproj">
@@ -106,6 +103,9 @@
     <None Include="Service References\BankServiceReference\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Service References\BankServiceReference\Delas.Test.BankServiceReference.UserSOAP.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\BankServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>

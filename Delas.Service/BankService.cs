@@ -1,5 +1,8 @@
-﻿using Delas.Model.Repository;
+﻿using AutoMapper;
+using Delas.Model.Model;
+using Delas.Model.Repository;
 using Delas.Model.Repository.Interfaces;
+using Delas.Service.Interfaces;
 using Delas.Service.Models;
 using System;
 using System.Collections.Generic;
@@ -13,16 +16,19 @@ namespace Delas.Service
     {
         IUserRepository userRepository = new UserRepository();
 
-        public User GetUserByLogin(string login)
+        public UserSOAP GetUserByLogin(string login)
         {
-            var user = userRepository.GetUserByLogin(login);
+            AutoMapperInitialize init = new UserSOAP();
+            init.InitMapping();
+            User user = (User)userRepository.GetUserByLogin(login);
+            
 
             if (user == null)
                 return null;
 
-            User userResult = new User(user.Id, user.Name, user.Surname, user.Login, user.Password, user.PasswordSalt);
-
-            return userResult;
+            UserSOAP userResult = new UserSOAP(user.Id, user.Name, user.Surname, user.Login, user.Password, user.PasswordSalt);
+            var zmienna = Mapper.Map<User, UserSOAP>(user);
+            return userResult; 
         }
 
         public string GetBankName()

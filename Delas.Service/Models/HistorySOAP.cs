@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 namespace Delas.Service.Models
 {
     [DataContract]
-    public partial class History
+    public partial class HistorySOAP
     {
-        public History(int id, int idAccount, string title, double amount, int operationType, string destinationAccount, double balance, DateTime date)
+        public HistorySOAP(int id, int idAccount, string title, double amount, int operationType, string destinationAccount, double balance, DateTime date)
         {
             this.Id = id;
             this.IdAccount = IdAccount;
@@ -37,10 +37,6 @@ namespace Delas.Service.Models
         [DataMember]
         public double Balance { get; set; }
         [DataMember]
-        public System.DateTime Date { get; set; }
-        [DataMember]
-        public virtual Account Account { get; set; }
-        [DataMember]
-        public virtual OperationType OperationType1 { get; set; }
+        public DateTime Date { get; set; }
     }
 }
