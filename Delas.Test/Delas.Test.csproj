@@ -86,6 +86,10 @@
       <Project>{1798bc9c-6e2a-406d-923b-d67cda23646b}</Project>
       <Name>Delas.Model</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Delas.Service\Delas.Service.csproj">
+      <Project>{cd76425e-b038-4f40-8a74-7fd4d8a0e31f}</Project>
+      <Name>Delas.Service</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

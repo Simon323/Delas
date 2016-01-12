@@ -15,5 +15,11 @@ namespace Delas.Model.Repository
         {
             return Items.FirstOrDefault(x => x.Login.Equals(login));
         }
+
+        public void Add(User user)
+        {
+            Entities.Users.Add(user);
+            Entities.SaveChanges();
+        }
     }
 }

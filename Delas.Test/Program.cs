@@ -21,7 +21,7 @@ namespace Delas.Test
                         break;
 
                     //System.Console.WriteLine(client.GetBankName());
-                    var xxx = client.GetUserByLogin("qwer");
+                    UserSOAP xxx = client.GetUserByLogin("qwer");
                     System.Console.WriteLine(xxx);
                 }
 

@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace Delas.Service.Models
 {
     [DataContract]
-    public partial class UserSOAP : AutoMapperInitialize
+    public partial class UserSOAP// : AutoMapperInitialize
     {
 
         public UserSOAP() { }
@@ -38,7 +38,7 @@ namespace Delas.Service.Models
         [DataMember]
         public string PasswordSalt { get; set; }
 
-        public void InitMapping()
+        public static void InitMapping()
         {
             Mapper.CreateMap<User, UserSOAP>()
                 .ForMember(d => d.Id, s => s.MapFrom(m => m.Id))

@@ -18,17 +18,27 @@ namespace Delas.Service
 
         public UserSOAP GetUserByLogin(string login)
         {
-            AutoMapperInitialize init = new UserSOAP();
-            init.InitMapping();
-            User user = (User)userRepository.GetUserByLogin(login);
+            //AutoMapperInitialize init = new UserSOAP();
+            //init.InitMapping();
+            UserSOAP.InitMapping();
+            User user = userRepository.GetUserByLogin(login);
             
 
             if (user == null)
                 return null;
 
-            UserSOAP userResult = new UserSOAP(user.Id, user.Name, user.Surname, user.Login, user.Password, user.PasswordSalt);
-            var zmienna = Mapper.Map<User, UserSOAP>(user);
-            return userResult; 
+            return Mapper.Map<User, UserSOAP>(user);
+        }
+
+        public void AddUser(UserSOAP userSOAP)
+        {
+            UserSOAP.InitMapping();
+            userRepository.Add(Mapper.Map<UserSOAP, User>(userSOAP));
+        }
+
+        public void Save()
+        {
+            userRepository.Save();
         }
 
         public string GetBankName()

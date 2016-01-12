@@ -9,12 +9,14 @@ namespace Delas.Site.Models
     public class UserModel
     {
         [Required]
-        [StringLength(3)]
+        [StringLength(20, MinimumLength = 3)]
+        [Display(Name = "Login")]
         public string Login { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
         [StringLength(20,MinimumLength = 3)]
+        [Display(Name = "Password")]
         public string Password { get; set; }
     }
 }

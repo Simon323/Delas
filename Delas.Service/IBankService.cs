@@ -16,5 +16,11 @@ namespace Delas.Service
 
         [OperationContract]
         string GetBankName();
+
+        [OperationContract]
+        void AddUser(UserSOAP userSOAP);
+
+        [OperationContract]
+        void Save();
     }
 }

@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Delas.Site", "Delas.Site\Delas.Site.csproj", "{9FC90567-4654-4838-8BBA-CED65125A6C3}"
+	ProjectSection(ProjectDependencies) = postProject
+		{CD76425E-B038-4F40-8A74-7FD4D8A0E31F} = {CD76425E-B038-4F40-8A74-7FD4D8A0E31F}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Delas.Service", "Delas.Service\Delas.Service.csproj", "{CD76425E-B038-4F40-8A74-7FD4D8A0E31F}"
 EndProject

@@ -1,8 +1,32 @@
-﻿
+﻿@model Delas.Site.Models.UserModel
 @{
     ViewBag.Title = "Registration";
     Layout = "~/Views/Shared/_OuterLayout.cshtml";
 }
 
-<h2>Registration</h2>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true, "Registraion failed");
+    <div>
+        <fieldset>
+            <legend>Registration Form</legend>
+            <div>
+                @Html.LabelFor(x => x.Login)
+            </div>
+            <div>
+                @Html.TextBoxFor(x => x.Login)
+                @Html.ValidationMessageFor(x => x.Login)
+            </div>
+
+            <div>
+                @Html.LabelFor(x => x.Password)
+            </div>
+            <div>
+                @Html.PasswordFor(x => x.Password)
+                @Html.ValidationMessageFor(x => x.Password)
+            </div>
+            <input type="submit" value="Register" />
+        </fieldset>
+    </div>
+}
 
