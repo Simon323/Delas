@@ -22,5 +22,8 @@ namespace Delas.Model.Model
         public string DestinationAccount { get; set; }
         public double Balance { get; set; }
         public System.DateTime Date { get; set; }
+    
+        public virtual Account Account { get; set; }
+        public virtual OperationType OperationType1 { get; set; }
     }
 }

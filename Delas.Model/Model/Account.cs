@@ -14,9 +14,19 @@ namespace Delas.Model.Model
     
     public partial class Account
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Account()
+        {
+            this.Histories = new HashSet<History>();
+        }
+    
         public int Id { get; set; }
         public int IdUser { get; set; }
         public string Number { get; set; }
         public double Balance { get; set; }
+    
+        public virtual User User { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<History> Histories { get; set; }
     }
 }

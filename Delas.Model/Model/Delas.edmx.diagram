@@ -9,6 +9,9 @@
         <EntityTypeShape EntityType="DelasModel.History" Width="1.5" PointX="2.75" PointY="0.75" />
         <EntityTypeShape EntityType="DelasModel.OperationType" Width="1.5" PointX="4.75" PointY="0.75" />
         <EntityTypeShape EntityType="DelasModel.User" Width="1.5" PointX="0.75" PointY="4.75" />
+        <AssociationConnector Association="DelasModel.FK_Accounts_Users" />
+        <AssociationConnector Association="DelasModel.FK_History_Accounts" />
+        <AssociationConnector Association="DelasModel.FK_History_OperationTypes" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -15,7 +15,7 @@ namespace Delas.Test
         {
             using (BankServiceClient client = new BankServiceClient("BankServiceEndpoint"))
             {
-                while (true)
+                /*while (true)
                 {
                     if (System.Console.ReadLine().Equals("exit"))
                         break;
@@ -23,10 +23,17 @@ namespace Delas.Test
                     //System.Console.WriteLine(client.GetBankName());
                     UserSOAP xxx = client.GetUserByLogin("qwer");
                     System.Console.WriteLine(xxx);
-                }
+                }*/
 
                 //var result = client.GetUserByLogin("qwer");
                 //Console.ReadLine();
+
+                IUserRepository userRepository = new UserRepository();
+                userRepository.Add(new Model.Model.User {
+                    Login = "szymon",
+                    Password = "1234",
+                    PasswordSalt = "1234"
+                });
 
             }
         }
