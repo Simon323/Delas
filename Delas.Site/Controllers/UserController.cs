@@ -14,6 +14,7 @@ namespace Delas.Site.Controllers
         BankServiceClient client = new BankServiceClient("BankServiceEndpoint");
         public ActionResult Index()
         {
+            FormsAuthentication.SignOut();
             return View();
         }
 
@@ -30,7 +31,7 @@ namespace Delas.Site.Controllers
             {
                 if(IsValid(user.Login, user.Password))
                 {
-                    FormsAuthentication.SetAuthCookie(user.Login, false);
+                    FormsAuthentication.SetAuthCookie(user.Login, true);
                     return RedirectToAction("Index", "Home");
                 }
                 else

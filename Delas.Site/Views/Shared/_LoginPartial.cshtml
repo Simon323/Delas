@@ -24,7 +24,7 @@ else
 <ul class="nav navbar-nav">
     @if (Request.IsAuthenticated)
     {
-        <li>@Html.Encode(User.Identity.Name)</li>
+        <li style="color:white;">@Html.Encode(User.Identity.Name)</li>
         <li>@Html.ActionLink("Log Out", "LogOut", "User")</li>
     }
     else

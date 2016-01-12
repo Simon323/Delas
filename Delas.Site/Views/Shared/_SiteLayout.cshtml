@@ -20,19 +20,7 @@
                 @Html.ActionLink("Bank", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-                @*@Html.Partial("_LoginPartial")*@
-                <ul class="nav navbar-nav">
-                    @if (Request.IsAuthenticated)
-                    {
-                        <li>@Html.Encode(User.Identity.Name)</li>
-                        <li>@Html.ActionLink("Log Out", "LogOut", "User")</li>
-                    }
-                    else
-                    {
-                        <li>@Html.ActionLink("Register", "Registration", "User")</li>
-                        <li>@Html.ActionLink("Log In", "LogIn", "User")</li>
-                    }
-                </ul>
+                @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
