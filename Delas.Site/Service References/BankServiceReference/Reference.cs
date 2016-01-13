@@ -259,7 +259,7 @@ namespace Delas.Site.BankServiceReference {
         private int IdAccountField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int OperationTypeField;
+        private string OperationTypeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TitleField;
@@ -353,12 +353,12 @@ namespace Delas.Site.BankServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int OperationType {
+        public string OperationType {
             get {
                 return this.OperationTypeField;
             }
             set {
-                if ((this.OperationTypeField.Equals(value) != true)) {
+                if ((object.ReferenceEquals(this.OperationTypeField, value) != true)) {
                     this.OperationTypeField = value;
                     this.RaisePropertyChanged("OperationType");
                 }

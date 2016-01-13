@@ -13,7 +13,7 @@ namespace Delas.Model.Repository
     {
         public List<History> GetHistoryByIdAccount(int idAccount)
         {
-            return Items.Where(x => x.IdAccount.Equals(idAccount)).OrderBy(y => y.Date).ToList();
+            return Items.Where(x => x.IdAccount.Equals(idAccount)).OrderByDescending(y => y.Date).ToList();
         }
     }
 }

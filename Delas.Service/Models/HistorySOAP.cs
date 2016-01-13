@@ -12,7 +12,7 @@ namespace Delas.Service.Models
     [DataContract]
     public partial class HistorySOAP
     {
-        public HistorySOAP(int id, int idAccount, string title, double amount, int operationType, string destinationAccount, double balance, DateTime date)
+        public HistorySOAP(int id, int idAccount, string title, double amount, string operationType, string destinationAccount, double balance, DateTime date)
         {
             this.Id = id;
             this.IdAccount = IdAccount;
@@ -33,13 +33,13 @@ namespace Delas.Service.Models
         [DataMember]
         public double Amount { get; set; }
         [DataMember]
-        public int OperationType { get; set; }
+        public string OperationType { get; set; }
         [DataMember]
         public string DestinationAccount { get; set; }
         [DataMember]
         public double Balance { get; set; }
         [DataMember]
-        public DateTime Date { get; set; }
+        public System.DateTime Date { get; set; }
 
         public static void InitMapping()
         {
@@ -49,7 +49,7 @@ namespace Delas.Service.Models
                 .ForMember(d => d.Title, s => s.MapFrom(m => m.Title))
                 .ForMember(d => d.Amount, s => s.MapFrom(m => m.Amount))
                 .ForMember(d => d.OperationType, s => s.MapFrom(m => m.OperationType))
-                .ForMember(d => d.DestinationAccount, s => s.MapFrom(m => m.DestinationAccount))
+                .ForMember(d => d.DestinationAccount, s => s.MapFrom(m => string.IsNullOrEmpty(m.DestinationAccount) ? "" : m.DestinationAccount))
                 .ForMember(d => d.Balance, s => s.MapFrom(m => m.Balance))
                 .ForMember(d => d.Date, s => s.MapFrom(m => m.Date));
 

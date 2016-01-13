@@ -40,7 +40,7 @@
       <xs:element minOccurs="0" name="DestinationAccount" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="IdAccount" type="xs:int" />
-      <xs:element minOccurs="0" name="OperationType" type="xs:int" />
+      <xs:element minOccurs="0" name="OperationType" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>

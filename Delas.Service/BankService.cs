@@ -68,8 +68,7 @@ namespace Delas.Service
         {
             HistorySOAP.InitMapping();
             var historyList = historyRepository.GetHistoryByIdAccount(idAccount);
-
-            return Mapper.Map<List<History>, List<HistorySOAP>>(historyList);
+            return Mapper.Map<List<History>, List<HistorySOAP>>(historyList.ToList()); ;
         }
         #endregion
     }

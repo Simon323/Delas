@@ -30,7 +30,11 @@ namespace Delas.Site.Controllers
 
         public ActionResult History(int id)
         {
-            return View();
+            HistoryViewModel.InitMapping();
+            var history = client.GetHistoryByIdAccount(id);
+            List<HistoryViewModel> model = Mapper.Map<List<HistorySOAP>, List<HistoryViewModel>>(history.ToList()); 
+
+            return View(model);
         }
 
         public ActionResult CreateAccount()
@@ -58,11 +62,23 @@ namespace Delas.Site.Controllers
             return View();
         }
 
+        public ActionResult CashHandout(int id) // wypłata
+        {
+            return View();
+        }
+
+        [HttpPost]
         public ActionResult CashHandout() // wypłata
         {
             return View();
         }
 
+        public ActionResult Contribution(int id) //wpłata
+        {
+            return View();
+        }
+
+        [HttpPost]
         public ActionResult Contribution() //wpłata
         {
             return View();

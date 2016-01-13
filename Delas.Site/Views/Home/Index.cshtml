@@ -28,6 +28,8 @@
                     <th>Balance</th>
                     <th>History</th>
                     <th>Delete</th>
+                    <th>CashHandout</th>
+                    <th>Contribution</th>
                 </tr>
             </thead>
             <tbody>
@@ -38,6 +40,8 @@
                         <td>@x.Balance</td>
                         <td><a class="btn btn-default" href="/Home/History/@x.Id" role="button"><i class="glyphicon glyphicon-list-alt"></i></a></td>
                         <td><a class="btn btn-default" href="/Home/DeleteAccount/@x.Id" role="button"><i class="glyphicon glyphicon-trash"></i></a></td>
+                        <td><a class="btn btn-default" href="/Home/CashHandout/@x.Id" role="button"><i class="glyphicon glyphicon-share-alt"></i></a></td>
+                        <td><a class="btn btn-default" href="/Home/Contribution/@x.Id" role="button"><i class="glyphicon glyphicon-euro"></i></a></td>
                     </tr>
                 }
             </tbody>
