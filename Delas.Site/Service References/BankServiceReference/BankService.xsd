@@ -101,6 +101,20 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetAccountByNumber">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="number" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccountByNumberResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Delas.Service.Models" minOccurs="0" name="GetAccountByNumberResult" nillable="true" type="q7:AccountSOAP" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetHistoryByIdAccount">
     <xs:complexType>
       <xs:sequence>
@@ -111,14 +125,14 @@
   <xs:element name="GetHistoryByIdAccountResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Delas.Service.Models" minOccurs="0" name="GetHistoryByIdAccountResult" nillable="true" type="q7:ArrayOfHistorySOAP" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Delas.Service.Models" minOccurs="0" name="GetHistoryByIdAccountResult" nillable="true" type="q8:ArrayOfHistorySOAP" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="AddHistory">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Delas.Service.Models" minOccurs="0" name="history" nillable="true" type="q8:HistorySOAP" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Delas.Service.Models" minOccurs="0" name="history" nillable="true" type="q9:HistorySOAP" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

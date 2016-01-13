@@ -36,5 +36,10 @@ namespace Delas.Model.Repository
             accountToUpdate.Balance = account.Balance;
             Entities.SaveChanges();
         }
+
+        public Account GetAccountByNumber(string number)
+        {
+            return Items.FirstOrDefault(x => x.Number.Equals(number));
+        }
     }
 }

@@ -8,12 +8,12 @@ namespace Delas.Site.Universal
 {
     public class Utils
     {
-        public static string num = "00106039";
+        public static string num = "106039";
 
         public static string GenerateNewAccountNumber()
         {
             Random random = new Random();
-            string result = Utils.num;
+            string result = "00" + Utils.num;
             for(int i = 0; i < 16; i++)
             {
                 result += random.Next(10).ToString();

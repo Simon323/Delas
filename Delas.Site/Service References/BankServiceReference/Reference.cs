@@ -440,6 +440,12 @@ namespace Delas.Site.BankServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBankService/UpdateAccount", ReplyAction="http://tempuri.org/IBankService/UpdateAccountResponse")]
         System.Threading.Tasks.Task UpdateAccountAsync(Delas.Site.BankServiceReference.AccountSOAP account);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBankService/GetAccountByNumber", ReplyAction="http://tempuri.org/IBankService/GetAccountByNumberResponse")]
+        Delas.Site.BankServiceReference.AccountSOAP GetAccountByNumber(string number);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBankService/GetAccountByNumber", ReplyAction="http://tempuri.org/IBankService/GetAccountByNumberResponse")]
+        System.Threading.Tasks.Task<Delas.Site.BankServiceReference.AccountSOAP> GetAccountByNumberAsync(string number);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBankService/GetHistoryByIdAccount", ReplyAction="http://tempuri.org/IBankService/GetHistoryByIdAccountResponse")]
         Delas.Site.BankServiceReference.HistorySOAP[] GetHistoryByIdAccount(int idAccount);
         
@@ -542,6 +548,14 @@ namespace Delas.Site.BankServiceReference {
         
         public System.Threading.Tasks.Task UpdateAccountAsync(Delas.Site.BankServiceReference.AccountSOAP account) {
             return base.Channel.UpdateAccountAsync(account);
+        }
+        
+        public Delas.Site.BankServiceReference.AccountSOAP GetAccountByNumber(string number) {
+            return base.Channel.GetAccountByNumber(number);
+        }
+        
+        public System.Threading.Tasks.Task<Delas.Site.BankServiceReference.AccountSOAP> GetAccountByNumberAsync(string number) {
+            return base.Channel.GetAccountByNumberAsync(number);
         }
         
         public Delas.Site.BankServiceReference.HistorySOAP[] GetHistoryByIdAccount(int idAccount) {

@@ -37,6 +37,9 @@ namespace Delas.Service
 
         [OperationContract]
         void UpdateAccount(AccountSOAP account);
+
+        [OperationContract]
+        AccountSOAP GetAccountByNumber(string number);
         #endregion
 
         #region History

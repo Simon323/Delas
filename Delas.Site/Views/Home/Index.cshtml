@@ -20,7 +20,7 @@
     </div>
     <div class="row" style="padding-top:50px;">
         <div class="col-xs-12"><h2>Accounts</h2></div>
-        <a class="btn btn-default" href="/Home/CreateAccount" role="button"><i class="glyphicon glyphicon-plus"></i></a>
+        <a class="btn btn-default" href="/Home/CreateAccount" role="button"><i class="glyphicon glyphicon-plus"></i>Add</a>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -30,6 +30,7 @@
                     <th>Delete</th>
                     <th>CashHandout</th>
                     <th>Contribution</th>
+                    <th>Transfer</th>
                 </tr>
             </thead>
             <tbody>
@@ -42,6 +43,7 @@
                         <td><a class="btn btn-default" href="/Home/DeleteAccount/@x.Id" role="button"><i class="glyphicon glyphicon-trash"></i></a></td>
                         <td><a class="btn btn-default" href="/Home/CashHandout/@x.Id" role="button"><i class="glyphicon glyphicon-share-alt"></i></a></td>
                         <td><a class="btn btn-default" href="/Home/Contribution/@x.Id" role="button"><i class="glyphicon glyphicon-euro"></i></a></td>
+                        <td><a class="btn btn-default" href="/Home/Transfer/@x.Id" role="button"><i class="glyphicon glyphicon-transfer"></i></a></td>
                     </tr>
                 }
             </tbody>

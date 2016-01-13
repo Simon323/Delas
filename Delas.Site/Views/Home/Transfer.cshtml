@@ -1,7 +1,40 @@
-﻿
+﻿@model Delas.Site.Models.TransferViewModel
 @{
     ViewBag.Title = "Transfer";
 }
 
 <h2>Transfer</h2>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true, "Error");
+    <div>
+        <fieldset>
+            @Html.HiddenFor(x => x.IdAccount)
 
+            <div>
+                @Html.LabelFor(x => x.Title)
+            </div>
+            <div>
+                @Html.EditorFor(m => m.Title)
+                @Html.ValidationMessageFor(x => x.Title)
+            </div>
+
+            <div>
+                @Html.LabelFor(x => x.Destiny)
+            </div>
+            <div>
+                @Html.EditorFor(m => m.Destiny)
+                @Html.ValidationMessageFor(x => x.Destiny)
+            </div>
+
+            <div>
+                @Html.LabelFor(x => x.Amount)
+            </div>
+            <div>
+                @Html.EditorFor(m => m.Amount)
+                @Html.ValidationMessageFor(x => x.Amount)
+            </div>
+            <input type="submit" value="Submit" />
+        </fieldset>
+    </div>
+}

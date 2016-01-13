@@ -77,6 +77,17 @@ namespace Delas.Service
             AccountSOAP.InitMapping();
             accountRepository.Update(Mapper.Map<AccountSOAP, Account>(account));
         }
+
+        public AccountSOAP GetAccountByNumber(string number)
+        {
+            AccountSOAP.InitMapping();
+            var account = accountRepository.GetAccountByNumber(number);
+
+            if (account == null)
+                return null;
+
+            return Mapper.Map<Account, AccountSOAP>(account);
+        }
         #endregion
 
         #region History

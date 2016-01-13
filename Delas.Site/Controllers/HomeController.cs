@@ -17,6 +17,8 @@ namespace Delas.Site.Controllers
         BankServiceClient client = new BankServiceClient("BankServiceEndpoint");
         public ActionResult Index()
         {
+            //string numberMock = "41001060394748294346951652";
+            //var result = VerifyAccountNumber(numberMock);
             UserInformationsViewModel.InitMapping();
             BankAccountViewModel.InitMapping();
             var userLogin = User.Identity.Name;
@@ -57,9 +59,71 @@ namespace Delas.Site.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        public ActionResult Transfer()
+        public ActionResult Transfer(int id)
         {
-            return View();
+            TransferViewModel model = new TransferViewModel(id, String.Empty, 0.0, String.Empty);
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Transfer(TransferViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                AccountNumber accountNumber = VerifyAccountNumber(model.Destiny);
+
+                if (accountNumber.IsInternal)
+                {
+                    AccountSOAP sourceAccount = client.GetAccountById(model.IdAccount);
+                    double balanceAfterOpperation = sourceAccount.Balance - model.Amount;
+
+                    if (model.Amount <= 0 || balanceAfterOpperation < 0)
+                    {
+                        ModelState.AddModelError("", "Incorect Amount");
+                        return View(model);
+                    }
+
+                    AccountSOAP destinyAccount = client.GetAccountByNumber(model.Destiny);
+                    AccountSOAP sourceAccountToUpdate = new AccountSOAP();
+                    AccountSOAP destinyAccountToUpdate = new AccountSOAP();
+                    HistorySOAP sourceAccountHistory = new HistorySOAP();
+                    HistorySOAP destinyAccountHistory = new HistorySOAP();
+
+                    sourceAccountToUpdate.Id = model.IdAccount;
+                    sourceAccountToUpdate.Balance = balanceAfterOpperation;
+
+                    destinyAccountToUpdate.Id = destinyAccount.Id;
+                    destinyAccountToUpdate.Balance = destinyAccount.Balance + model.Amount;
+
+                    sourceAccountHistory.IdAccount = model.IdAccount;
+                    sourceAccountHistory.Title = model.Title;
+                    sourceAccountHistory.Amount = model.Amount * (-1);
+                    sourceAccountHistory.OperationType = "Przelew";
+                    sourceAccountHistory.DestinationAccount = destinyAccount.Number;
+                    sourceAccountHistory.Balance = sourceAccountToUpdate.Balance;
+                    sourceAccountHistory.Date = DateTime.Now;
+
+                    destinyAccountHistory.IdAccount = destinyAccount.Id;
+                    destinyAccountHistory.Title = model.Title;
+                    destinyAccountHistory.Amount = model.Amount;
+                    destinyAccountHistory.OperationType = "Przelew";
+                    destinyAccountHistory.DestinationAccount = sourceAccount.Number;
+                    destinyAccountHistory.Balance = destinyAccount.Balance;
+                    destinyAccountHistory.Date = DateTime.Now;
+
+                    client.UpdateAccount(sourceAccountToUpdate);
+                    client.UpdateAccount(destinyAccountToUpdate);
+
+                    client.AddHistory(sourceAccountHistory);
+                    client.AddHistory(destinyAccountHistory);
+
+                    return RedirectToAction("Index", "Home");
+
+                }
+            }
+
+            ModelState.AddModelError("", "Incorect model");
+            return View(model);
         }
 
         public ActionResult CashHandout(int id) // wypłata
@@ -143,5 +207,23 @@ namespace Delas.Site.Controllers
             ModelState.AddModelError("", "Incorect Amount");
             return View(model);
         }
+
+        private AccountNumber VerifyAccountNumber(string accountNumber)
+        {
+            bool isCorrect = true;
+            bool isInternal = true;
+            string nrb = accountNumber.Substring(0, 2);
+            string index = accountNumber.Substring(4, 6);
+
+            if (!index.Equals(Utils.num))
+                isInternal = false;
+
+            if (!Utils.CalculateNRB(accountNumber.Substring(2, accountNumber.Length - 2)).Equals(nrb))
+                isCorrect = false;
+
+            return new AccountNumber(isCorrect, isInternal);
+        }
+
+        
     }
 }
