@@ -41,6 +41,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=4.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.4.1.1\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.0.1011, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -70,6 +82,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -99,7 +112,12 @@
       <DependentUpon>BankRESTService.svc</DependentUpon>
     </Compile>
     <Compile Include="IBankRESTService.cs" />
+    <Compile Include="Models\AccountREST.cs" />
+    <Compile Include="Models\HistoryRest.cs" />
+    <Compile Include="Models\Response.cs" />
+    <Compile Include="Models\Transfer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Universal\Utils.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -115,6 +133,16 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Delas.DBContext\Delas.DBContext.csproj">
+      <Project>{82da3922-02d6-4dd4-8c05-9c26cb0a16f2}</Project>
+      <Name>Delas.DBContext</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Delas.Model\Delas.Model.csproj">
+      <Project>{1798bc9c-6e2a-406d-923b-d67cda23646b}</Project>
+      <Name>Delas.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

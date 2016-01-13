@@ -5,6 +5,8 @@ using Delas.Site.Universal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Mvc;
@@ -118,6 +120,29 @@ namespace Delas.Site.Controllers
                     client.AddHistory(destinyAccountHistory);
 
                     return RedirectToAction("Index", "Home");
+
+                }
+                else
+                {
+                    var externalAddressList = ExternalBank.FillBankAddressList();
+                    var searchResult = externalAddressList.FirstOrDefault(x => x.AccountNumber.Equals(model.Destiny));
+                    if(searchResult == null)
+                    {
+                        ModelState.AddModelError("", "Incorect account number");
+                        return View(model);
+                    }
+
+                    AccountSOAP sourceAccount = client.GetAccountById(model.IdAccount);
+                    TransferREST transfer = new TransferREST(sourceAccount.Number, model.Destiny, model.Title, Convert.ToInt32((model.Amount * 100)));
+
+                    using (var client = new HttpClient())
+                    {
+                        client.BaseAddress = new Uri("http://" + searchResult.IPAddress + "/");
+                        client.DefaultRequestHeaders.Accept.Clear();
+                        client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                        //HttpResponseMessage response = await client.PostAsJsonAsync("transfer", transfer);
+                    }
 
                 }
             }

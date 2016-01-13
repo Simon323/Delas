@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Delas.Rest.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -13,7 +14,11 @@ namespace Delas.Rest
     public interface IBankRESTService
     {
         [OperationContract]
-        [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare, UriTemplate = "Persons/")]
+        [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare, UriTemplate = "test")]
         string DoWork();
+
+        [OperationContract]
+        [WebInvoke(Method = "POST", ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare, UriTemplate = "transfer")]
+        Response Transfer(Transfer model);
     }
 }
