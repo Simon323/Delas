@@ -10,5 +10,6 @@ namespace Delas.Model.Repository.Interfaces
     public interface IHistoryRepository
     {
         List<History> GetHistoryByIdAccount(int idAccount);
+        void Add(History history);
     }
 }

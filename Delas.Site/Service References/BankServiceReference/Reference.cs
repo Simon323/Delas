@@ -428,11 +428,29 @@ namespace Delas.Site.BankServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBankService/AddAccount", ReplyAction="http://tempuri.org/IBankService/AddAccountResponse")]
         System.Threading.Tasks.Task AddAccountAsync(Delas.Site.BankServiceReference.AccountSOAP account);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBankService/GetAccountById", ReplyAction="http://tempuri.org/IBankService/GetAccountByIdResponse")]
+        Delas.Site.BankServiceReference.AccountSOAP GetAccountById(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBankService/GetAccountById", ReplyAction="http://tempuri.org/IBankService/GetAccountByIdResponse")]
+        System.Threading.Tasks.Task<Delas.Site.BankServiceReference.AccountSOAP> GetAccountByIdAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBankService/UpdateAccount", ReplyAction="http://tempuri.org/IBankService/UpdateAccountResponse")]
+        void UpdateAccount(Delas.Site.BankServiceReference.AccountSOAP account);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBankService/UpdateAccount", ReplyAction="http://tempuri.org/IBankService/UpdateAccountResponse")]
+        System.Threading.Tasks.Task UpdateAccountAsync(Delas.Site.BankServiceReference.AccountSOAP account);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBankService/GetHistoryByIdAccount", ReplyAction="http://tempuri.org/IBankService/GetHistoryByIdAccountResponse")]
         Delas.Site.BankServiceReference.HistorySOAP[] GetHistoryByIdAccount(int idAccount);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBankService/GetHistoryByIdAccount", ReplyAction="http://tempuri.org/IBankService/GetHistoryByIdAccountResponse")]
         System.Threading.Tasks.Task<Delas.Site.BankServiceReference.HistorySOAP[]> GetHistoryByIdAccountAsync(int idAccount);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBankService/AddHistory", ReplyAction="http://tempuri.org/IBankService/AddHistoryResponse")]
+        void AddHistory(Delas.Site.BankServiceReference.HistorySOAP history);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBankService/AddHistory", ReplyAction="http://tempuri.org/IBankService/AddHistoryResponse")]
+        System.Threading.Tasks.Task AddHistoryAsync(Delas.Site.BankServiceReference.HistorySOAP history);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -510,12 +528,36 @@ namespace Delas.Site.BankServiceReference {
             return base.Channel.AddAccountAsync(account);
         }
         
+        public Delas.Site.BankServiceReference.AccountSOAP GetAccountById(int id) {
+            return base.Channel.GetAccountById(id);
+        }
+        
+        public System.Threading.Tasks.Task<Delas.Site.BankServiceReference.AccountSOAP> GetAccountByIdAsync(int id) {
+            return base.Channel.GetAccountByIdAsync(id);
+        }
+        
+        public void UpdateAccount(Delas.Site.BankServiceReference.AccountSOAP account) {
+            base.Channel.UpdateAccount(account);
+        }
+        
+        public System.Threading.Tasks.Task UpdateAccountAsync(Delas.Site.BankServiceReference.AccountSOAP account) {
+            return base.Channel.UpdateAccountAsync(account);
+        }
+        
         public Delas.Site.BankServiceReference.HistorySOAP[] GetHistoryByIdAccount(int idAccount) {
             return base.Channel.GetHistoryByIdAccount(idAccount);
         }
         
         public System.Threading.Tasks.Task<Delas.Site.BankServiceReference.HistorySOAP[]> GetHistoryByIdAccountAsync(int idAccount) {
             return base.Channel.GetHistoryByIdAccountAsync(idAccount);
+        }
+        
+        public void AddHistory(Delas.Site.BankServiceReference.HistorySOAP history) {
+            base.Channel.AddHistory(history);
+        }
+        
+        public System.Threading.Tasks.Task AddHistoryAsync(Delas.Site.BankServiceReference.HistorySOAP history) {
+            return base.Channel.AddHistoryAsync(history);
         }
     }
 }

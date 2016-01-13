@@ -43,11 +43,29 @@
   <wsdl:message name="IBankService_AddAccount_OutputMessage">
     <wsdl:part name="parameters" element="tns:AddAccountResponse" />
   </wsdl:message>
+  <wsdl:message name="IBankService_GetAccountById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountById" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_GetAccountById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_UpdateAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAccount" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_UpdateAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAccountResponse" />
+  </wsdl:message>
   <wsdl:message name="IBankService_GetHistoryByIdAccount_InputMessage">
     <wsdl:part name="parameters" element="tns:GetHistoryByIdAccount" />
   </wsdl:message>
   <wsdl:message name="IBankService_GetHistoryByIdAccount_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetHistoryByIdAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_AddHistory_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddHistory" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_AddHistory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddHistoryResponse" />
   </wsdl:message>
   <wsdl:portType name="IBankService">
     <wsdl:operation name="GetUserByLogin">
@@ -74,9 +92,21 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IBankService/AddAccount" message="tns:IBankService_AddAccount_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IBankService/AddAccountResponse" message="tns:IBankService_AddAccount_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetAccountById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/GetAccountById" message="tns:IBankService_GetAccountById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/GetAccountByIdResponse" message="tns:IBankService_GetAccountById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/UpdateAccount" message="tns:IBankService_UpdateAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/UpdateAccountResponse" message="tns:IBankService_UpdateAccount_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetHistoryByIdAccount">
       <wsdl:input wsaw:Action="http://tempuri.org/IBankService/GetHistoryByIdAccount" message="tns:IBankService_GetHistoryByIdAccount_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IBankService/GetHistoryByIdAccountResponse" message="tns:IBankService_GetHistoryByIdAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddHistory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/AddHistory" message="tns:IBankService_AddHistory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/AddHistoryResponse" message="tns:IBankService_AddHistory_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BankServiceEndpoint" type="tns:IBankService">
@@ -135,8 +165,35 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetAccountById">
+      <soap:operation soapAction="http://tempuri.org/IBankService/GetAccountById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAccount">
+      <soap:operation soapAction="http://tempuri.org/IBankService/UpdateAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetHistoryByIdAccount">
       <soap:operation soapAction="http://tempuri.org/IBankService/GetHistoryByIdAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddHistory">
+      <soap:operation soapAction="http://tempuri.org/IBankService/AddHistory" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

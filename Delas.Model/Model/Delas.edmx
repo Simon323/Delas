@@ -51,7 +51,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_History_Accounts">
-          <End Role="Accounts" Type="Self.Accounts" Multiplicity="1" />
+          <End Role="Accounts" Type="Self.Accounts" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="History" Type="Self.History" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Accounts">

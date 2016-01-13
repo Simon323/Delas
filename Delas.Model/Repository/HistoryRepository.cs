@@ -15,5 +15,11 @@ namespace Delas.Model.Repository
         {
             return Items.Where(x => x.IdAccount.Equals(idAccount)).OrderByDescending(y => y.Date).ToList();
         }
+
+        public void Add(History history)
+        {
+            Entities.Histories.Add(history);
+            Entities.SaveChanges();
+        }
     }
 }

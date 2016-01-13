@@ -11,5 +11,7 @@ namespace Delas.Model.Repository.Interfaces
     {
         void Delete(int id);
         void Add(Account account);
+        Account GetAccountById(int id);
+        void Update(Account account);
     }
 }

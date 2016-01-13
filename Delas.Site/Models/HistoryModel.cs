@@ -9,6 +9,7 @@ namespace Delas.Site.Models
 {
     public class HistoryViewModel
     {
+        public int IdAccount { get; set; }
         public string Title { get; set; }
         public double Amount { get; set; }
         public string OperationType { get; set; }
@@ -19,6 +20,7 @@ namespace Delas.Site.Models
         public static void InitMapping()
         {
             Mapper.CreateMap<HistorySOAP, HistoryViewModel>()
+                .ForMember(d => d.IdAccount, s => s.MapFrom(m => m.IdAccount))
                 .ForMember(d => d.Title, s => s.MapFrom(m => m.Title))
                 .ForMember(d => d.Amount, s => s.MapFrom(m => m.Amount))
                 .ForMember(d => d.OperationType, s => s.MapFrom(m => m.OperationType))

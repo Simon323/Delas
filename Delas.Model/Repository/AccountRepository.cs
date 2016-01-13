@@ -24,5 +24,17 @@ namespace Delas.Model.Repository
             Entities.Accounts.Add(account);
             Entities.SaveChanges();
         }
+
+        public Account GetAccountById(int id)
+        {
+            return Items.FirstOrDefault(x => x.Id.Equals(id));
+        }
+
+        public void Update(Account account)
+        {
+            var accountToUpdate = Items.FirstOrDefault(x => x.Id.Equals(account.Id));
+            accountToUpdate.Balance = account.Balance;
+            Entities.SaveChanges();
+        }
     }
 }

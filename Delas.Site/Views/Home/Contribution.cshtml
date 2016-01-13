@@ -1,7 +1,7 @@
-﻿
+﻿@model Delas.Site.Models.PaymentViewModel
 @{
     ViewBag.Title = "Contribution";
 }
 
 <h2>Contribution</h2>
-
+@Html.Partial("_paymentForm", Model)

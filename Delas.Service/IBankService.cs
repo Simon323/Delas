@@ -11,6 +11,7 @@ namespace Delas.Service
     [ServiceContract]
     public interface IBankService
     {
+        #region User
         [OperationContract]
         UserSOAP GetUserByLogin(string login);
 
@@ -22,6 +23,7 @@ namespace Delas.Service
 
         [OperationContract]
         List<AccountSOAP> GetAllAccountsByLogin(string login);
+        #endregion
 
         #region Account
         [OperationContract]
@@ -29,11 +31,20 @@ namespace Delas.Service
 
         [OperationContract]
         void AddAccount(AccountSOAP account);
+
+        [OperationContract]
+        AccountSOAP GetAccountById(int id);
+
+        [OperationContract]
+        void UpdateAccount(AccountSOAP account);
         #endregion
 
         #region History
         [OperationContract]
         List<HistorySOAP> GetHistoryByIdAccount(int idAccount);
+
+        [OperationContract]
+        void AddHistory(HistorySOAP history);
         #endregion
     }
 }

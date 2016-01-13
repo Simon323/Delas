@@ -64,24 +64,53 @@ namespace Delas.Site.Controllers
 
         public ActionResult CashHandout(int id) // wypłata
         {
-            return View();
+            PaymentViewModel model = new PaymentViewModel(id, 0.0);
+            return View(model);
         }
 
         [HttpPost]
-        public ActionResult CashHandout() // wypłata
+        public ActionResult CashHandout(PaymentViewModel model) // wypłata
         {
             return View();
         }
 
         public ActionResult Contribution(int id) //wpłata
         {
-            return View();
+            PaymentViewModel model = new PaymentViewModel(id, 0.0);
+            return View(model);
         }
 
         [HttpPost]
-        public ActionResult Contribution() //wpłata
+        public ActionResult Contribution(PaymentViewModel model) //wpłata
         {
-            return View();
+            if (ModelState.IsValid)
+            {
+                if(model.Amount <= 0)
+                {
+                    ModelState.AddModelError("", "Incorect Amount");
+                    return View(model);
+                }
+
+                AccountSOAP account = new AccountSOAP();
+                account.Id = model.IdAccount;
+                account.Balance = account.Balance + model.Amount;
+
+                HistorySOAP history = new HistorySOAP();
+                history.IdAccount = model.IdAccount;
+                history.Title = "Wpłata własna";
+                history.Amount = model.Amount;
+                history.OperationType = "Wpłata";
+                history.Balance = account.Balance;
+                history.Date = DateTime.Now;
+
+                client.UpdateAccount(account);
+                client.AddHistory(history);
+
+                return RedirectToAction("Index", "Home");
+            }
+
+            ModelState.AddModelError("", "Incorect Amount");
+            return View(model);
         }
     }
 }

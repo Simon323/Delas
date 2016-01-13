@@ -18,6 +18,7 @@ namespace Delas.Service
         IAccountRepository accountRepository = new AccountRepository();
         IHistoryRepository historyRepository = new HistoryRepository();
 
+        #region User
         public UserSOAP GetUserByLogin(string login)
         {
             UserSOAP.InitMapping();
@@ -49,6 +50,8 @@ namespace Delas.Service
             return Mapper.Map<List<Account>, List<AccountSOAP>>(accountsList);
 
         }
+        
+        #endregion
 
         #region Account
         public void DeleteAccount(int id)
@@ -61,6 +64,19 @@ namespace Delas.Service
             AccountSOAP.InitMapping();
             accountRepository.Add(Mapper.Map<AccountSOAP, Account>(account));
         }
+
+        public AccountSOAP GetAccountById(int id)
+        {
+            AccountSOAP.InitMapping();
+            var account = accountRepository.GetAccountById(id);
+            return Mapper.Map<Account, AccountSOAP>(account);
+        }
+
+        public void UpdateAccount(AccountSOAP account)
+        {
+            AccountSOAP.InitMapping();
+            accountRepository.Update(Mapper.Map<AccountSOAP, Account>(account));
+        }
         #endregion
 
         #region History
@@ -69,6 +85,12 @@ namespace Delas.Service
             HistorySOAP.InitMapping();
             var historyList = historyRepository.GetHistoryByIdAccount(idAccount);
             return Mapper.Map<List<History>, List<HistorySOAP>>(historyList.ToList()); ;
+        }
+
+        public void AddHistory(HistorySOAP history)
+        {
+            HistorySOAP.InitMapping();
+            historyRepository.Add(Mapper.Map<HistorySOAP, History>(history));
         }
         #endregion
     }
