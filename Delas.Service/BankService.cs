@@ -18,8 +18,6 @@ namespace Delas.Service
 
         public UserSOAP GetUserByLogin(string login)
         {
-            //AutoMapperInitialize init = new UserSOAP();
-            //init.InitMapping();
             UserSOAP.InitMapping();
             User user = userRepository.GetUserByLogin(login);
             
@@ -41,10 +39,13 @@ namespace Delas.Service
             userRepository.Save();
         }
 
-        public string GetBankName()
+        public List<AccountSOAP> GetAllAccountsByLogin(string login)
         {
-            var xx = userRepository.GetUserByLogin("qwer");
-            return "rqrqrq";
+            AccountSOAP.InitMapping();
+            List<Account> accountsList = userRepository.GetAllAccountsByLogin(login);
+
+            return Mapper.Map<List<Account>, List<AccountSOAP>>(accountsList);
+
         }
     }
 }

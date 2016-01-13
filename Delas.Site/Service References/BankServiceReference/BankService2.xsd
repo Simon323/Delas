@@ -11,4 +11,19 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="UserSOAP" nillable="true" type="tns:UserSOAP" />
+  <xs:complexType name="ArrayOfAccountSOAP">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AccountSOAP" nillable="true" type="tns:AccountSOAP" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAccountSOAP" nillable="true" type="tns:ArrayOfAccountSOAP" />
+  <xs:complexType name="AccountSOAP">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Balance" type="xs:double" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IdUser" type="xs:int" />
+      <xs:element minOccurs="0" name="Number" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AccountSOAP" nillable="true" type="tns:AccountSOAP" />
 </xs:schema>

@@ -15,12 +15,12 @@ namespace Delas.Service
         UserSOAP GetUserByLogin(string login);
 
         [OperationContract]
-        string GetBankName();
-
-        [OperationContract]
         void AddUser(UserSOAP userSOAP);
 
         [OperationContract]
         void Save();
+
+        [OperationContract]
+        List<AccountSOAP> GetAllAccountsByLogin(string login);
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AutoMapper;
+using Delas.Model.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -26,5 +28,20 @@ namespace Delas.Service.Models
         public string Number { get; set; }
         [DataMember]
         public double Balance { get; set; }
+
+        public static void InitMapping()
+        {
+            Mapper.CreateMap<Account, AccountSOAP>()
+                .ForMember(d => d.Id, s => s.MapFrom(m => m.Id))
+                .ForMember(d => d.IdUser, s => s.MapFrom(m => m.IdUser))
+                .ForMember(d => d.Number, s => s.MapFrom(m => m.Number))
+                .ForMember(d => d.Balance, s => s.MapFrom(m => m.Balance));
+
+            Mapper.CreateMap<AccountSOAP, Account>()
+                .ForMember(d => d.Id, s => s.MapFrom(m => m.Id))
+                .ForMember(d => d.IdUser, s => s.MapFrom(m => m.IdUser))
+                .ForMember(d => d.Number, s => s.MapFrom(m => m.Number))
+                .ForMember(d => d.Balance, s => s.MapFrom(m => m.Balance));
+        }
     }
 }

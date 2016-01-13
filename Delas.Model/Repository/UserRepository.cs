@@ -21,5 +21,10 @@ namespace Delas.Model.Repository
             Entities.Users.Add(user);
             Entities.SaveChanges();
         }
+
+        public List<Account> GetAllAccountsByLogin(string login)
+        {
+            return Items.FirstOrDefault(x => x.Login.Equals(login)).Accounts.ToList();
+        }
     }
 }

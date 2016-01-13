@@ -138,6 +138,99 @@ namespace Delas.Site.BankServiceReference {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AccountSOAP", Namespace="http://schemas.datacontract.org/2004/07/Delas.Service.Models")]
+    [System.SerializableAttribute()]
+    public partial class AccountSOAP : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double BalanceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdUserField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NumberField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Balance {
+            get {
+                return this.BalanceField;
+            }
+            set {
+                if ((this.BalanceField.Equals(value) != true)) {
+                    this.BalanceField = value;
+                    this.RaisePropertyChanged("Balance");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int IdUser {
+            get {
+                return this.IdUserField;
+            }
+            set {
+                if ((this.IdUserField.Equals(value) != true)) {
+                    this.IdUserField = value;
+                    this.RaisePropertyChanged("IdUser");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Number {
+            get {
+                return this.NumberField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NumberField, value) != true)) {
+                    this.NumberField = value;
+                    this.RaisePropertyChanged("Number");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="BankServiceReference.IBankService")]
     public interface IBankService {
@@ -147,12 +240,6 @@ namespace Delas.Site.BankServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBankService/GetUserByLogin", ReplyAction="http://tempuri.org/IBankService/GetUserByLoginResponse")]
         System.Threading.Tasks.Task<Delas.Site.BankServiceReference.UserSOAP> GetUserByLoginAsync(string login);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBankService/GetBankName", ReplyAction="http://tempuri.org/IBankService/GetBankNameResponse")]
-        string GetBankName();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBankService/GetBankName", ReplyAction="http://tempuri.org/IBankService/GetBankNameResponse")]
-        System.Threading.Tasks.Task<string> GetBankNameAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBankService/AddUser", ReplyAction="http://tempuri.org/IBankService/AddUserResponse")]
         void AddUser(Delas.Site.BankServiceReference.UserSOAP userSOAP);
@@ -165,6 +252,12 @@ namespace Delas.Site.BankServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBankService/Save", ReplyAction="http://tempuri.org/IBankService/SaveResponse")]
         System.Threading.Tasks.Task SaveAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBankService/GetAllAccountsByLogin", ReplyAction="http://tempuri.org/IBankService/GetAllAccountsByLoginResponse")]
+        Delas.Site.BankServiceReference.AccountSOAP[] GetAllAccountsByLogin(string login);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBankService/GetAllAccountsByLogin", ReplyAction="http://tempuri.org/IBankService/GetAllAccountsByLoginResponse")]
+        System.Threading.Tasks.Task<Delas.Site.BankServiceReference.AccountSOAP[]> GetAllAccountsByLoginAsync(string login);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -202,14 +295,6 @@ namespace Delas.Site.BankServiceReference {
             return base.Channel.GetUserByLoginAsync(login);
         }
         
-        public string GetBankName() {
-            return base.Channel.GetBankName();
-        }
-        
-        public System.Threading.Tasks.Task<string> GetBankNameAsync() {
-            return base.Channel.GetBankNameAsync();
-        }
-        
         public void AddUser(Delas.Site.BankServiceReference.UserSOAP userSOAP) {
             base.Channel.AddUser(userSOAP);
         }
@@ -224,6 +309,14 @@ namespace Delas.Site.BankServiceReference {
         
         public System.Threading.Tasks.Task SaveAsync() {
             return base.Channel.SaveAsync();
+        }
+        
+        public Delas.Site.BankServiceReference.AccountSOAP[] GetAllAccountsByLogin(string login) {
+            return base.Channel.GetAllAccountsByLogin(login);
+        }
+        
+        public System.Threading.Tasks.Task<Delas.Site.BankServiceReference.AccountSOAP[]> GetAllAccountsByLoginAsync(string login) {
+            return base.Channel.GetAllAccountsByLoginAsync(login);
         }
     }
 }

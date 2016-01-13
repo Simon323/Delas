@@ -1,4 +1,7 @@
-﻿using System;
+﻿using AutoMapper;
+using Delas.Site.BankServiceReference;
+using Delas.Site.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,15 +12,28 @@ namespace Delas.Site.Controllers
     [Authorize]
     public class HomeController : Controller
     {
+        BankServiceClient client = new BankServiceClient("BankServiceEndpoint");
         public ActionResult Index()
         {
-            var x = User.Identity.Name;
+            UserInformationsViewModel.InitMapping();
+            BankAccountViewModel.InitMapping();
+            var userLogin = User.Identity.Name;
+            var userInformations = client.GetUserByLogin(userLogin);
+            var bankAccounts = client.GetAllAccountsByLogin(userLogin);
+            
+            HomePageViewModel model = new HomePageViewModel(Mapper.Map<UserSOAP, UserInformationsViewModel>(userInformations), Mapper.Map<List<AccountSOAP>, List<BankAccountViewModel>>(bankAccounts.ToList()));
+
+            return View(model);
+        }
+
+        public ActionResult History(int id)
+        {
             return View();
         }
 
-        public ActionResult History()
+        public ActionResult DeleteAccount(int id)
         {
-            return View();
+            return RedirectToAction("Index", "Home");
         }
 
         public ActionResult Transfer()

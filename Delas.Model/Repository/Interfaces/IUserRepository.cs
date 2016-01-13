@@ -13,5 +13,6 @@ namespace Delas.Model.Repository.Interfaces
         User GetUserByLogin(string login);
         void Add(User user);
         void Save();
+        List<Account> GetAllAccountsByLogin(string login);
     }
 }

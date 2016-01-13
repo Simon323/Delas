@@ -10,7 +10,7 @@ namespace Delas.Site.Models
     {
         [Required]
         [StringLength(20, MinimumLength = 3)]
-        [Display(Name = "Login")]
+        [Display(Name = "Email")]
         public string Login { get; set; }
 
         [Required]

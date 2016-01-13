@@ -13,12 +13,6 @@
   <wsdl:message name="IBankService_GetUserByLogin_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetUserByLoginResponse" />
   </wsdl:message>
-  <wsdl:message name="IBankService_GetBankName_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetBankName" />
-  </wsdl:message>
-  <wsdl:message name="IBankService_GetBankName_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetBankNameResponse" />
-  </wsdl:message>
   <wsdl:message name="IBankService_AddUser_InputMessage">
     <wsdl:part name="parameters" element="tns:AddUser" />
   </wsdl:message>
@@ -31,14 +25,16 @@
   <wsdl:message name="IBankService_Save_OutputMessage">
     <wsdl:part name="parameters" element="tns:SaveResponse" />
   </wsdl:message>
+  <wsdl:message name="IBankService_GetAllAccountsByLogin_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAccountsByLogin" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_GetAllAccountsByLogin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAccountsByLoginResponse" />
+  </wsdl:message>
   <wsdl:portType name="IBankService">
     <wsdl:operation name="GetUserByLogin">
       <wsdl:input wsaw:Action="http://tempuri.org/IBankService/GetUserByLogin" message="tns:IBankService_GetUserByLogin_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IBankService/GetUserByLoginResponse" message="tns:IBankService_GetUserByLogin_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetBankName">
-      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/GetBankName" message="tns:IBankService_GetBankName_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/GetBankNameResponse" message="tns:IBankService_GetBankName_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="AddUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IBankService/AddUser" message="tns:IBankService_AddUser_InputMessage" />
@@ -48,20 +44,15 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IBankService/Save" message="tns:IBankService_Save_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IBankService/SaveResponse" message="tns:IBankService_Save_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetAllAccountsByLogin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/GetAllAccountsByLogin" message="tns:IBankService_GetAllAccountsByLogin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/GetAllAccountsByLoginResponse" message="tns:IBankService_GetAllAccountsByLogin_OutputMessage" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BankServiceEndpoint" type="tns:IBankService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetUserByLogin">
       <soap:operation soapAction="http://tempuri.org/IBankService/GetUserByLogin" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetBankName">
-      <soap:operation soapAction="http://tempuri.org/IBankService/GetBankName" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -80,6 +71,15 @@
     </wsdl:operation>
     <wsdl:operation name="Save">
       <soap:operation soapAction="http://tempuri.org/IBankService/Save" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAccountsByLogin">
+      <soap:operation soapAction="http://tempuri.org/IBankService/GetAllAccountsByLogin" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
