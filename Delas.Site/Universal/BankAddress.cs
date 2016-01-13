@@ -17,7 +17,7 @@ namespace Delas.Site.Universal
         }
     }
 
-    public class Fill
+    public class ExternalBank
     {
         public static List<BankAddress> FillBankAddressList()
         {

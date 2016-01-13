@@ -219,6 +219,7 @@
     <Compile Include="Models\HomeModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\TransferREST.cs" />
     <Compile Include="Models\TransferViewModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -228,6 +229,7 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
+    <Compile Include="Universal\BankAddress.cs" />
     <Compile Include="Universal\Utils.cs" />
   </ItemGroup>
   <ItemGroup>
