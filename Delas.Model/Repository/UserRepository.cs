@@ -26,5 +26,6 @@ namespace Delas.Model.Repository
         {
             return Items.FirstOrDefault(x => x.Login.Equals(login)).Accounts.ToList();
         }
+        
     }
 }

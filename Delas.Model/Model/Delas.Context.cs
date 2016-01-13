@@ -27,7 +27,6 @@ namespace Delas.Model.Model
     
         public virtual DbSet<Account> Accounts { get; set; }
         public virtual DbSet<History> Histories { get; set; }
-        public virtual DbSet<OperationType> OperationTypes { get; set; }
         public virtual DbSet<User> Users { get; set; }
     }
 }

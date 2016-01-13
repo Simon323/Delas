@@ -72,9 +72,6 @@
     <Compile Include="Model\History.cs">
       <DependentUpon>Delas.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\OperationType.cs">
-      <DependentUpon>Delas.tt</DependentUpon>
-    </Compile>
     <Compile Include="Model\User.cs">
       <DependentUpon>Delas.tt</DependentUpon>
     </Compile>
@@ -83,9 +80,7 @@
     <Compile Include="Repository\HistoryRepository.cs" />
     <Compile Include="Repository\Interfaces\IAccountRepository.cs" />
     <Compile Include="Repository\Interfaces\IHistoryRepository.cs" />
-    <Compile Include="Repository\Interfaces\IOperationTypeRepository.cs" />
     <Compile Include="Repository\Interfaces\IUserRepository.cs" />
-    <Compile Include="Repository\OperationTypeRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>

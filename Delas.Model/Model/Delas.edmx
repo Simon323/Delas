@@ -22,25 +22,18 @@
           <Property Name="IdAccount" Type="int" Nullable="false" />
           <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Amount" Type="float" Nullable="false" />
-          <Property Name="OperationType" Type="int" Nullable="false" />
+          <Property Name="OperationType" Type="nvarchar(max)" Nullable="false" />
           <Property Name="DestinationAccount" Type="nvarchar(max)" />
           <Property Name="Balance" Type="float" Nullable="false" />
           <Property Name="Date" Type="datetime" Nullable="false" />
-        </EntityType>
-        <EntityType Name="OperationTypes">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nvarchar(max)" />
-          <Property Name="Surname" Type="nvarchar(max)" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Surname" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Login" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
           <Property Name="PasswordSalt" Type="nvarchar(max)" Nullable="false" />
@@ -69,22 +62,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_History_OperationTypes">
-          <End Role="OperationTypes" Type="Self.OperationTypes" Multiplicity="1" />
-          <End Role="History" Type="Self.History" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="OperationTypes">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="History">
-              <PropertyRef Name="OperationType" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="DelasModelStoreContainer">
           <EntitySet Name="Accounts" EntityType="Self.Accounts" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="History" EntityType="Self.History" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="OperationTypes" EntityType="Self.OperationTypes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Accounts_Users" Association="Self.FK_Accounts_Users">
             <End Role="Users" EntitySet="Users" />
@@ -92,10 +72,6 @@
           </AssociationSet>
           <AssociationSet Name="FK_History_Accounts" Association="Self.FK_History_Accounts">
             <End Role="Accounts" EntitySet="Accounts" />
-            <End Role="History" EntitySet="History" />
-          </AssociationSet>
-          <AssociationSet Name="FK_History_OperationTypes" Association="Self.FK_History_OperationTypes">
-            <End Role="OperationTypes" EntitySet="OperationTypes" />
             <End Role="History" EntitySet="History" />
           </AssociationSet>
         </EntityContainer>
@@ -106,7 +82,6 @@
         <EntityContainer Name="DelasEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Accounts" EntityType="DelasModel.Account" />
           <EntitySet Name="Histories" EntityType="DelasModel.History" />
-          <EntitySet Name="OperationTypes" EntityType="DelasModel.OperationType" />
           <EntitySet Name="Users" EntityType="DelasModel.User" />
           <AssociationSet Name="FK_Accounts_Users" Association="DelasModel.FK_Accounts_Users">
             <End Role="User" EntitySet="Users" />
@@ -114,10 +89,6 @@
           </AssociationSet>
           <AssociationSet Name="FK_History_Accounts" Association="DelasModel.FK_History_Accounts">
             <End Role="Account" EntitySet="Accounts" />
-            <End Role="History" EntitySet="Histories" />
-          </AssociationSet>
-          <AssociationSet Name="FK_History_OperationTypes" Association="DelasModel.FK_History_OperationTypes">
-            <End Role="OperationType" EntitySet="OperationTypes" />
             <End Role="History" EntitySet="Histories" />
           </AssociationSet>
         </EntityContainer>
@@ -140,28 +111,19 @@
           <Property Name="IdAccount" Type="Int32" Nullable="false" />
           <Property Name="Title" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Amount" Type="Double" Nullable="false" />
-          <Property Name="OperationType" Type="Int32" Nullable="false" />
+          <Property Name="OperationType" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="DestinationAccount" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Balance" Type="Double" Nullable="false" />
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="Account" Relationship="DelasModel.FK_History_Accounts" FromRole="History" ToRole="Account" />
-          <NavigationProperty Name="OperationType1" Relationship="DelasModel.FK_History_OperationTypes" FromRole="History" ToRole="OperationType" />
-        </EntityType>
-        <EntityType Name="OperationType">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Histories" Relationship="DelasModel.FK_History_OperationTypes" FromRole="OperationType" ToRole="History" />
         </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Surname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Surname" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Login" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Password" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="PasswordSalt" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -191,19 +153,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_History_OperationTypes">
-          <End Type="DelasModel.OperationType" Role="OperationType" Multiplicity="1" />
-          <End Type="DelasModel.History" Role="History" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="OperationType">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="History">
-              <PropertyRef Name="OperationType" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -229,14 +179,6 @@
                 <ScalarProperty Name="Amount" ColumnName="Amount" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="IdAccount" ColumnName="IdAccount" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="OperationTypes">
-            <EntityTypeMapping TypeName="DelasModel.OperationType">
-              <MappingFragment StoreEntitySet="OperationTypes">
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

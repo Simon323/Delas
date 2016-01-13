@@ -15,6 +15,8 @@ namespace Delas.Service
     public class BankService : IBankService
     {
         IUserRepository userRepository = new UserRepository();
+        IAccountRepository accountRepository = new AccountRepository();
+        IHistoryRepository historyRepository = new HistoryRepository();
 
         public UserSOAP GetUserByLogin(string login)
         {
@@ -47,5 +49,28 @@ namespace Delas.Service
             return Mapper.Map<List<Account>, List<AccountSOAP>>(accountsList);
 
         }
+
+        #region Account
+        public void DeleteAccount(int id)
+        {
+            accountRepository.Delete(id);
+        }
+
+        public void AddAccount(AccountSOAP account)
+        {
+            AccountSOAP.InitMapping();
+            accountRepository.Add(Mapper.Map<AccountSOAP, Account>(account));
+        }
+        #endregion
+
+        #region History
+        public List<HistorySOAP> GetHistoryByIdAccount(int idAccount)
+        {
+            HistorySOAP.InitMapping();
+            var historyList = historyRepository.GetHistoryByIdAccount(idAccount);
+
+            return Mapper.Map<List<History>, List<HistorySOAP>>(historyList);
+        }
+        #endregion
     }
 }

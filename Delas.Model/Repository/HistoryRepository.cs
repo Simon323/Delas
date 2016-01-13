@@ -11,5 +11,9 @@ namespace Delas.Model.Repository
 {
     public class HistoryRepository : BaseDbContextRepository<History, DelasEntities>, IHistoryRepository
     {
+        public List<History> GetHistoryByIdAccount(int idAccount)
+        {
+            return Items.Where(x => x.IdAccount.Equals(idAccount)).OrderBy(y => y.Date).ToList();
+        }
     }
 }

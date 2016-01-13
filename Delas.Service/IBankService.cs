@@ -22,5 +22,18 @@ namespace Delas.Service
 
         [OperationContract]
         List<AccountSOAP> GetAllAccountsByLogin(string login);
+
+        #region Account
+        [OperationContract]
+        void DeleteAccount(int id);
+
+        [OperationContract]
+        void AddAccount(AccountSOAP account);
+        #endregion
+
+        #region History
+        [OperationContract]
+        List<HistorySOAP> GetHistoryByIdAccount(int idAccount);
+        #endregion
     }
 }

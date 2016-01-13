@@ -12,5 +12,17 @@ namespace Delas.Model.Repository
 {
     public class AccountRepository : BaseDbContextRepository<Account, DelasEntities>, IAccountRepository
     {
+        public void Delete(int id)
+        {
+            var account = Items.FirstOrDefault(x => x.Id.Equals(id));
+            Entities.Accounts.Remove(account);
+            Entities.SaveChanges();
+        }
+
+        public void Add(Account account)
+        {
+            Entities.Accounts.Add(account);
+            Entities.SaveChanges();
+        }
     }
 }

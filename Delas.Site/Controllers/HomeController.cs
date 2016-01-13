@@ -1,9 +1,11 @@
 ﻿using AutoMapper;
 using Delas.Site.BankServiceReference;
 using Delas.Site.Models;
+using Delas.Site.Universal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Mvc;
 
@@ -31,8 +33,23 @@ namespace Delas.Site.Controllers
             return View();
         }
 
+        public ActionResult CreateAccount()
+        {
+            AccountSOAP newAccount = new AccountSOAP();
+            var user = client.GetUserByLogin(User.Identity.Name);
+
+            newAccount.IdUser = user.Id;
+            newAccount.Number = Utils.GenerateNewAccountNumber();
+            newAccount.Balance = 0.0;
+
+            client.AddAccount(newAccount);
+
+            return RedirectToAction("Index", "Home");
+        }
+
         public ActionResult DeleteAccount(int id)
         {
+            client.DeleteAccount(id);
             return RedirectToAction("Index", "Home");
         }
 

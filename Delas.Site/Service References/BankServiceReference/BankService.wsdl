@@ -31,6 +31,24 @@
   <wsdl:message name="IBankService_GetAllAccountsByLogin_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllAccountsByLoginResponse" />
   </wsdl:message>
+  <wsdl:message name="IBankService_DeleteAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAccount" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_DeleteAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_AddAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddAccount" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_AddAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_GetHistoryByIdAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetHistoryByIdAccount" />
+  </wsdl:message>
+  <wsdl:message name="IBankService_GetHistoryByIdAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetHistoryByIdAccountResponse" />
+  </wsdl:message>
   <wsdl:portType name="IBankService">
     <wsdl:operation name="GetUserByLogin">
       <wsdl:input wsaw:Action="http://tempuri.org/IBankService/GetUserByLogin" message="tns:IBankService_GetUserByLogin_InputMessage" />
@@ -47,6 +65,18 @@
     <wsdl:operation name="GetAllAccountsByLogin">
       <wsdl:input wsaw:Action="http://tempuri.org/IBankService/GetAllAccountsByLogin" message="tns:IBankService_GetAllAccountsByLogin_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IBankService/GetAllAccountsByLoginResponse" message="tns:IBankService_GetAllAccountsByLogin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/DeleteAccount" message="tns:IBankService_DeleteAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/DeleteAccountResponse" message="tns:IBankService_DeleteAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/AddAccount" message="tns:IBankService_AddAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/AddAccountResponse" message="tns:IBankService_AddAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHistoryByIdAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBankService/GetHistoryByIdAccount" message="tns:IBankService_GetHistoryByIdAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBankService/GetHistoryByIdAccountResponse" message="tns:IBankService_GetHistoryByIdAccount_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BankServiceEndpoint" type="tns:IBankService">
@@ -80,6 +110,33 @@
     </wsdl:operation>
     <wsdl:operation name="GetAllAccountsByLogin">
       <soap:operation soapAction="http://tempuri.org/IBankService/GetAllAccountsByLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAccount">
+      <soap:operation soapAction="http://tempuri.org/IBankService/DeleteAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddAccount">
+      <soap:operation soapAction="http://tempuri.org/IBankService/AddAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHistoryByIdAccount">
+      <soap:operation soapAction="http://tempuri.org/IBankService/GetHistoryByIdAccount" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

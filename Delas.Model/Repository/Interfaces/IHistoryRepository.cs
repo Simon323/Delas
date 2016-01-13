@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Delas.Model.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,6 @@ namespace Delas.Model.Repository.Interfaces
 {
     public interface IHistoryRepository
     {
+        List<History> GetHistoryByIdAccount(int idAccount);
     }
 }

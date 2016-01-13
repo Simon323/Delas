@@ -18,12 +18,11 @@ namespace Delas.Model.Model
         public int IdAccount { get; set; }
         public string Title { get; set; }
         public double Amount { get; set; }
-        public int OperationType { get; set; }
+        public string OperationType { get; set; }
         public string DestinationAccount { get; set; }
         public double Balance { get; set; }
         public System.DateTime Date { get; set; }
     
         public virtual Account Account { get; set; }
-        public virtual OperationType OperationType1 { get; set; }
     }
 }

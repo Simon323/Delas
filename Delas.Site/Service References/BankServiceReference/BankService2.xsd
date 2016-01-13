@@ -26,4 +26,23 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="AccountSOAP" nillable="true" type="tns:AccountSOAP" />
+  <xs:complexType name="ArrayOfHistorySOAP">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="HistorySOAP" nillable="true" type="tns:HistorySOAP" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfHistorySOAP" nillable="true" type="tns:ArrayOfHistorySOAP" />
+  <xs:complexType name="HistorySOAP">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Amount" type="xs:double" />
+      <xs:element minOccurs="0" name="Balance" type="xs:double" />
+      <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DestinationAccount" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IdAccount" type="xs:int" />
+      <xs:element minOccurs="0" name="OperationType" type="xs:int" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HistorySOAP" nillable="true" type="tns:HistorySOAP" />
 </xs:schema>
