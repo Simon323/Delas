@@ -24,7 +24,12 @@ else
 <ul class="nav navbar-nav">
     @if (Request.IsAuthenticated)
     {
-        <li style="color:white;">@Html.Encode(User.Identity.Name)</li>
+        <li style="color:white; padding-top: 15px; padding-bottom: 15px;">@Html.Encode(User.Identity.Name)</li>
+        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+        <li>@Html.ActionLink("Historia", "History", "Home")</li>
+        <li>@Html.ActionLink("Przelew", "Transfer", "Home")</li>
+        <li>@Html.ActionLink("Wpłata", "CashHandout", "Home")</li>
+        <li>@Html.ActionLink("Wypłata", "Contribution", "Home")</li>
         <li>@Html.ActionLink("Log Out", "LogOut", "User")</li>
     }
     else

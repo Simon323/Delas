@@ -14,7 +14,9 @@ namespace Delas.Site.Controllers
         BankServiceClient client = new BankServiceClient("BankServiceEndpoint");
         public ActionResult Index()
         {
-            FormsAuthentication.SignOut();
+            if (!String.IsNullOrEmpty(User.Identity.Name))
+                return RedirectToAction("Index", "Home");
+            
             return View();
         }
 
@@ -25,7 +27,7 @@ namespace Delas.Site.Controllers
         }
 
         [HttpPost]
-        public ActionResult LogIn(UserModel user)
+        public ActionResult LogIn(LoginModel user)
         {
             if (ModelState.IsValid)
             {
@@ -50,7 +52,7 @@ namespace Delas.Site.Controllers
         }
 
         [HttpPost]
-        public ActionResult Registration(UserModel user)
+        public ActionResult Registration(RegistrationModel user)
         {
             if (ModelState.IsValid)
             {
@@ -59,6 +61,8 @@ namespace Delas.Site.Controllers
 
                 UserSOAP newUser = new UserSOAP();
                 newUser.Login = user.Login;
+                newUser.Name = user.Name;
+                newUser.Surname = user.Surname;
                 newUser.Password = encrypPass;
                 newUser.PasswordSalt = crypto.Salt;
                 client.AddUser(newUser);

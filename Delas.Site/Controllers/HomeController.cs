@@ -11,20 +11,27 @@ namespace Delas.Site.Controllers
     {
         public ActionResult Index()
         {
+            var x = User.Identity.Name;
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult History()
         {
-            ViewBag.Message = "Your application description page.";
-
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult Transfer()
         {
-            ViewBag.Message = "Your contact page.";
+            return View();
+        }
 
+        public ActionResult CashHandout() // wypłata
+        {
+            return View();
+        }
+
+        public ActionResult Contribution() //wpłata
+        {
             return View();
         }
     }

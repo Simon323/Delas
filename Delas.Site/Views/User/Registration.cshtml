@@ -1,4 +1,4 @@
-﻿@model Delas.Site.Models.UserModel
+﻿@model Delas.Site.Models.RegistrationModel
 @{
     ViewBag.Title = "Registration";
     Layout = "~/Views/Shared/_OuterLayout.cshtml";
@@ -16,6 +16,22 @@
             <div>
                 @Html.TextBoxFor(x => x.Login)
                 @Html.ValidationMessageFor(x => x.Login)
+            </div>
+
+            <div>
+                @Html.LabelFor(x => x.Name)
+            </div>
+            <div>
+                @Html.TextBoxFor(x => x.Name)
+                @Html.ValidationMessageFor(x => x.Name)
+            </div>
+
+            <div>
+                @Html.LabelFor(x => x.Surname)
+            </div>
+            <div>
+                @Html.TextBoxFor(x => x.Surname)
+                @Html.ValidationMessageFor(x => x.Surname)
             </div>
 
             <div>
